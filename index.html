@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UP-DOWN</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <header id="header">
+      <h1>UP <strong>DOWN</strong></h1>
+    </header>
+    <div class="updownCalculator">
+      <input type="number" id="num" class="input" placeholder="1부터 100사이의 생각한 숫자를 입력하세요." />
+      <button class="calc">CLICK</button>
+      <button class="reset">다시하기</button>
+      <div class="result"></div>
+    </div>
+    <script>
+      const comNum = Math.floor(Math.random() * 99) + 1;
+      console.log("🚀 ~ file: index.html ~ line 28 ~ comNum", comNum);
+      const calc = document.querySelector(".updownCalculator .calc");
+      const reset = document.querySelector(".updownCalculator .reset");
+      const result = document.querySelector(".updownCalculator .result");
+      const num = document.querySelector("#num");
+
+      let count = 0;
+      calc.addEventListener("click", function () {
+        count = count + 1;
+        console.log("🚀 ~ file: index.html ~ line 37 ~ count", count);
+        result.textContent = parseInt(num.value) === comNum ? `CORRECT / ${count}` : parseInt(num.value) > comNum ? "DOWN" : "UP";
+        // if (parseInt(num.value) > comNum) {
+        //   result.textContent = "DOWN";
+        // } else if (parseInt(num.value) < comNum) {
+        //   result.textContent = "UP";
+        // } else {
+        //   result.textContent = `CORRECT / ${count}`;
+        // }
+      });
+    </script>
+  </body>
+</html>
